@@ -1,23 +1,9 @@
-# 1 2 3 4 5
-# a = 12
-# b = 23
-# c = 34
-# d = 45
-
-#Date = 12/09/19 ^ 2
-#1462140    4561
-# 4 5 6 1
-# a = 4
-# b = 5
-# c = 6
-# d = 1
-
-# 12 + 4 = a
-# 23 + 5 = b
-# 34 + 6 = c
-# 45 + 1 = d
-
-#a..z + ' '
-
-# hello world
-# 
+class Enigma
+  def encrypt(message, key, date = Time.now.strftime("%m%d%y"))
+    {
+      encryption: ,
+      key: key,
+      date: date
+    }
+  end
+end
