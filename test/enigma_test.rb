@@ -1,5 +1,4 @@
 require './test_helper'
-require 'minitest/pride'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
