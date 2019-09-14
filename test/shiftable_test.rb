@@ -12,4 +12,10 @@ class ShiftableTest < Minitest::Test
     date = '091319'
     assert_equal [9, 7, 6, 1], date_shift(date)
   end
+
+  def test_final_shift
+    date = '091319'
+    key = '12345'
+    assert_equal [21, 30, 40, 46], final_shift(key, date)
+  end
 end
