@@ -1,23 +1,61 @@
-# 1 2 3 4 5
-# a = 12
-# b = 23
-# c = 34
-# d = 45
+require 'pry'
+# class Enigma
+#   def encrypt(message, key, date = Time.now.strftime("%m%d%y"))
+#     date, key = key, rand.to_s[2..6] if key.length != 5
+#     {
+#       encryption: ,
+#       key: key,
+#       date: date
+#     }
+#   end
+# end
 
-#Date = 12/09/19 ^ 2
-#1462140    4561
-# 4 5 6 1
-# a = 4
-# b = 5
-# c = 6
-# d = 1
+#shift = chars.at(chars.index('a') + (0 % 27))
+#shift = chars['a'.ord - 97 + (0 % 27)]
+chars = ('a'..'z').to_a << ' '
+@shift = [6, 5, 102, 57]
+"hello I'm david.".downcase.chars.map do |character|
+  letter_location = (character.ord - 97 + @shift[0]) % 27
+  letter_location = (26 + @shift[0]) % 27 if character == ' '
+  value = chars[letter_location]
+  value = character if !chars.include?(character)
+  @shift.rotate!
+  value
+end.join
 
-# 12 + 4 = a
-# 23 + 5 = b
-# 34 + 6 = c
-# 45 + 1 = d
+chars = ('a'..'z').to_a << ' '
+@shift = [6, 5, 102, 57]
+"njfouec'seydany.".downcase.chars.map do |character|
+  letter_location = (character.ord - 97 - @shift[0]) % 27
+  letter_location = (26 - @shift[0]) % 27 if character == ' '
+  value = chars[letter_location]
+  value = character if !chars.include?(character)
+  @shift.rotate!
+  value
+end.join
 
-#a..z + ' '
+# @shift = [2, 3, 4, 5]
+# "hello".downcase.chars.map do |character|
+#   letter_location = (character.ord - 97 - @shift[0])
+#   value = chars[letter_location]
+#   @shift.rotate!
+#   value
+# end.join
 
-# hello world
-# 
+# @shift = [2, 3, 4, 5]
+# "jhpqq".downcase.chars.map do |character|
+#   letter_location = (character.ord - 97 - @shift[0])
+#   value = chars[letter_location]
+#   @shift.rotate!
+#   value
+# end.join
+#
+# @shift = [26, 25, 27, 28]
+# "igoppbl'nbgewkg.".downcase.chars.map do |character|
+#   letter_location = character.ord - 97 + (@shift[0] % 27)
+#   letter_location = (@shift[0] % 27) - 1 if character == ' '
+#   value = chars[letter_location]
+#   value = character if !chars.include?(character)
+#   @shift.rotate!
+#   value
+# end.join
