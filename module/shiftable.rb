@@ -15,4 +15,14 @@ module Shiftable
     d = rooted_date[-1].to_i
     [a, b, c, d]
   end
+
+  def final_shift(key, date)
+    first_shift = number_shift(key)
+    second_shift = date_shift(date)
+    a = first_shift[0] + second_shift[0]
+    b = first_shift[1] + second_shift[1]
+    c = first_shift[2] + second_shift[2]
+    d = first_shift[3] + second_shift[3]
+    [a, b, c, d]
+  end
 end
