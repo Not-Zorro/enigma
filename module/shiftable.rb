@@ -8,11 +8,11 @@ module Shiftable
   end
 
   def date_shift(date)
-    rooted_date = (date.to_i ** 2).to_s
-    a = rooted_date[-4].to_i
-    b = rooted_date[-3].to_i
-    c = rooted_date[-2].to_i
-    d = rooted_date[-1].to_i
+    squared_date = (date.to_i ** 2).to_s
+    a = squared_date[-4].to_i
+    b = squared_date[-3].to_i
+    c = squared_date[-2].to_i
+    d = squared_date[-1].to_i
     [a, b, c, d]
   end
 
