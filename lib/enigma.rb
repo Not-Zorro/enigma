@@ -1,8 +1,8 @@
-require './lib/encryption'
-
-class Enigma < Encryption
+require './lib/decryption'
+class Enigma < Decryption
   def initialize
     @message_encryption = Encryption.new
+    @message_decryption = Decryption.new
   end
 
   def encrypt(message, key = '', date = Time.now.strftime("%m%d%y"))
@@ -10,6 +10,14 @@ class Enigma < Encryption
     date = Time.now.strftime("%m%d%y") if date.length != 6
     {
       encryption: @message_encryption.message(message, key, date),
+      key: key,
+      date: date
+    }
+  end
+
+  def decrypt(message, key, date = Time.now.strftime("%m%d%y"))
+    {
+      decryption: @message_decryption.message(message, key, date),
       key: key,
       date: date
     }
