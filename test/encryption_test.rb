@@ -12,5 +12,6 @@ class EncryptionTest < Minitest::Test
 
   def test_encrypt_message
     assert_equal "keder ohulw", @encryption.message("hello world", "02715", "040895")
+    assert_equal "keder ohulw.", @encryption.message("hello world.", "02715", "040895")
   end
 end

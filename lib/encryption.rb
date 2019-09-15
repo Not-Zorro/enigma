@@ -13,6 +13,7 @@ class Encryption
       letter_location = (character.ord - 97 + @shift[0]) % 27
       letter_location = (26 + @shift[0]) % 27 if character == ' '
       value = @alphabet[letter_location]
+      value = character if !@alphabet.include?(character)
       @shift.rotate!
       value
     end
