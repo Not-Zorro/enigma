@@ -11,6 +11,7 @@ class Encryption
     format_message = message.downcase.chars
     altered_message = format_message.map do |character|
       letter_location = (character.ord - 97 + @shift[0]) % 27
+      letter_location = (26 + @shift[0]) % 27 if character == ' '
       value = @alphabet[letter_location]
       @shift.rotate!
       value
