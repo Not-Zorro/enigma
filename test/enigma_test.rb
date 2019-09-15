@@ -18,4 +18,8 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
+
+  def test_encrypt_message_without_date
+    assert_equal "keder ohulw", @encryption.message("hello world", "02715")
+  end
 end
