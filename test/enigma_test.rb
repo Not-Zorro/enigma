@@ -10,8 +10,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma , @enigma
   end
 
-  def test
-
   def test_for_encrypt
     expected = {
      encryption: "keder ohulw",
