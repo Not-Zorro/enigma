@@ -3,11 +3,13 @@ class Enigma < Decryption
   def initialize
     @message_encryption = Encryption.new
     @message_decryption = Decryption.new
+    @number = GenerateNumber.number
+    @date = GenerateDate.date
   end
 
-  def encrypt(message, key = '', date = Time.now.strftime("%d%m%y"))
-    date, key = key, rand.to_s[2..6] if key.length != 5
-    date = Time.now.strftime("%d%m%y") if date.length != 6
+  def encrypt(message, key = @number, date = @date)
+    date, key = key, @number if key.length != 5
+    date = @date if date.length != 6
     {
       encryption: @message_encryption.message(message, key, date),
       key: key,
@@ -15,7 +17,7 @@ class Enigma < Decryption
     }
   end
 
-  def decrypt(message, key, date = Time.now.strftime("%d%m%y"))
+  def decrypt(message, key, date = @date)
     {
       decryption: @message_decryption.message(message, key, date),
       key: key,

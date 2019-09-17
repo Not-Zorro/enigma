@@ -1,6 +1,7 @@
 require './module/shiftable'
+require './lib/generate_date'
 
-class Encryption
+class Encryption < GenerateDate
   include Shiftable
 
   def initialize

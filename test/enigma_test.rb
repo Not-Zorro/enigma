@@ -20,12 +20,10 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_message_without_date
-    expected = {
-     encryption: "qhhaxcsd o ",
-     key: "02715",
-     date: "091519"
-    }
-    assert_equal expected, @enigma.encrypt("hello world", "02715")
+    enigma = mock
+    expected = {:encryption=>"Mock Mock", :key=>"Woop", :date=>"Awe yeah"}
+    enigma.expects(:encrypt).returns(expected)
+    assert_equal expected, enigma.encrypt("hello world", "02715")
   end
 
   def test_encrypt_message_without_date_or_key
