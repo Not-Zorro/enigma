@@ -1,8 +1,9 @@
-require './lib/decryption'
-class Enigma < Decryption
+require './lib/cracking'
+class Enigma < Cracking
   def initialize
     @message_encryption = Encryption.new
     @message_decryption = Decryption.new
+    @message_crack = Cracking.new
     @number = GenerateNumber.number
     @date = GenerateDate.date
   end
@@ -18,9 +19,20 @@ class Enigma < Decryption
   end
 
   def decrypt(message, key, date = @date)
+    date = @date if date.length != 6
     {
       decryption: @message_decryption.message(message, key, date),
       key: key,
+      date: date
+    }
+  end
+
+  def crack(message, date = @date)
+    date = @date if date.length != 6
+    cracked_array = @message_crack.message(message, date)
+    {
+      decryption: cracked_array[1],
+      key: cracked_array[0],
       date: date
     }
   end
