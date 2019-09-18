@@ -40,4 +40,14 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715", "040895")
   end
+
+  def test_for_crack
+    encrypted = @enigma.encrypt("hello world end", "02715", "040895")
+    expected = {
+      :decryption=>"hello world end",
+      :key=>"02715",
+      :date=>"040895"
+    }
+    assert_equal expected, @enigma.crack(encrypted[:encryption], "040895")
+  end
 end
