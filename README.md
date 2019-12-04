@@ -10,7 +10,7 @@ The encryption is based on the Caesar Cipher. The idea is that we can translate 
 However, instead of using the same shift for every character, our algorithm will use 4 different shifts known as the A, B, C, and D shifts. Every fourth character will be shifted by the same amount, so the 1st, 5th, and 9th characters will be shifted with the A shift, the 2nd, 6th, and 10th characters will be shifted with the B shift, etc.
 
 ### CLI File I/O
-Inside of `message.txt` put the message you'd like to encrypt\n
+Inside of `message.txt` put the message you'd like to encrypt\
 In your terminal:
 ```
 $ ruby ./runner/encrypt.rb message.txt encrypted.txt
