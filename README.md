@@ -11,7 +11,9 @@ However, instead of using the same shift for every character, our algorithm will
 
 ### CLI File I/O
 In your terminal:
-```$ ruby ./runner/encrypt.rb message.txt encrypted.txt
+```
+$ ruby ./runner/encrypt.rb message.txt encrypted.txt
 Created 'encrypted.txt' with the key 82648 and date 240818
 $ ruby ./runner/decrypt.rb encrypted.txt decrypted.txt 82648 240818
-Created 'decrypted.txt' with the key 82648 and date 240818```
+Created 'decrypted.txt' with the key 82648 and date 240818
+```
